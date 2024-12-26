@@ -1,0 +1,10 @@
+# Python dependencies
+spacy
+numpy
+dotenv
+# Node.js dependencies
+express
+body-parser
+path
+cors
+groq-sdk
