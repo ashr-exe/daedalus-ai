@@ -173,8 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             // Get ratings from both endpoints
             const [pythonRating, groqRating] = await Promise.all([
-                getRating(userAnswer, currentQuestion.matchAnswer, "http://localhost:3000/api/spacy-rate"),
-                getRating(userAnswer, currentQuestion.matchAnswer, "http://localhost:3000/api/groq-rate")
+                getRating(userAnswer, currentQuestion.matchAnswer, "/api/spacy-rate"),
+                getRating(userAnswer, currentQuestion.matchAnswer, "/api/groq-rate")
             ]);
 
             updateRatingDisplay(pythonRating, groqRating);
