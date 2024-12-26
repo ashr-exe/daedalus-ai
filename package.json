@@ -1,0 +1,21 @@
+{
+    "name": "mock-cryptex",
+    "version": "1.0.0",
+    "description": "A quiz application with similarity scoring",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "build": "python -m spacy download en_core_web_md"
+    },
+    "dependencies": {
+        "body-parser": "^1.20.3",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "groq-sdk": "^0.3.3",
+        "python-shell": "^5.0.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
