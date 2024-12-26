@@ -81,13 +81,15 @@ Visit `http://localhost:3000` in your browser.
 
 ```plaintext
 daedalus-ai/
-├── public/               # Static assets (images, stylesheets, etc.)
+├── public/               # Static assets
+│   ├── index.html        # Main HTML file
+│   ├── styles.css        # CSS styles
+│   ├── script.js         # Frontend JavaScript
 ├── server.js             # Node.js server for API and routing
-├── script.js             # Frontend logic
 ├── rate_answer.py        # Python-based AI scoring logic
 ├── .gitignore            # Ignored files
 ├── package.json          # Node.js dependencies
-├── requirements.txt      # Python dependencies           
+├── requirements.txt      # Python dependencies
 └── README.md             # Project documentation
 ```
 
