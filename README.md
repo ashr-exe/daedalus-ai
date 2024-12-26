@@ -85,6 +85,10 @@ daedalus-ai/
 │   ├── index.html        # Main HTML file
 │   ├── styles.css        # CSS styles
 │   ├── script.js         # Frontend JavaScript
+│   ├── images/           # Images for the quiz
+│   │   ├── q1.png        # Question 1 image
+│   │   ├── q2.png        # Question 2 image
+│   │   └── q3.png        # Question 3 image
 ├── server.js             # Node.js server for API and routing
 ├── rate_answer.py        # Python-based AI scoring logic
 ├── .gitignore            # Ignored files
