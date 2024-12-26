@@ -1,0 +1,368 @@
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e0f2ff, #f0f9ff);
+    color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .quiz-container {
+    width: 90%;
+    max-width: 600px;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content-wrapper {
+    padding: 2rem;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #3b82f6;
+    transition: width 0.3s ease;
+  }
+  
+  h1 {
+    margin: 0 0 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .question-counter {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+  }
+  
+  .question-box {
+    margin-bottom: 1.5rem;
+  }
+  
+  #question {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #334155;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  #answer {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    color: #334155;
+    transition: all 0.3s ease;
+  }
+  
+  #answer:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  #answer::placeholder {
+    color: #94a3b8;
+  }
+  
+  #submit-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background: #3b82f6;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    min-width: 100px;
+  }
+  
+  #submit-btn:hover {
+    background: #2563eb;
+  }
+  
+  #submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+  }
+  
+  .loader {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  @keyframes rotation {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  
+  .button-text {
+    transition: opacity 0.3s ease;
+  }
+  
+  #submit-btn.loading .button-text {
+    opacity: 0;
+  }
+  
+  #submit-btn.loading .loader {
+    display: block;
+  }
+  
+  .feedback-wrapper {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  #feedback {
+    margin: 0 0 1rem;
+    min-height: 20px;
+    color: #334155;
+  }
+  
+  .rating-container {
+    position: relative;
+    height: 40px;
+    margin-top: 1rem;
+  }
+  
+  #rating-slider {
+    height: 10px;
+    width: 100%;
+    background: #e2e8f0;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .rating-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    transition: width 0.5s ease, background-color 0.3s ease;
+  }
+  
+  #rating-value {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #334155;
+  }
+  
+  /* Rating color classes */
+  .rating-low {
+    background-color: #ef4444;
+  }
+  
+  .rating-medium {
+    background-color: #f59e0b;
+  }
+  
+  .rating-high {
+    background-color: #10b981;
+  }
+  
+  .rating-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: width 0.5s ease;
+  }
+  
+  .rating-python {
+    background-color: #3b82f6;
+    z-index: 1;
+  }
+  
+  .rating-groq {
+    background-color: #8b5cf6;
+    z-index: 1;
+  }
+  
+  .rating-combined {
+    background-color: transparent;
+    z-index: 2;
+    height: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .rating-combined.rating-low {
+    background-color: #ef4444;
+  }
+  
+  .rating-combined.rating-medium {
+    background-color: #f59e0b;
+  }
+  
+  .rating-combined.rating-high {
+    background-color: #10b981;
+  }
+  
+  #rating-value {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    position: static;
+    margin-top: 8px;
+  }
+  
+  .rating-detail {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+  
+  .rating-combined {
+    font-weight: 600;
+    color: #334155;
+  }
+  
+  /* Add these styles to your existing CSS */
+  
+  .image-container {
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .question-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  
+  
+  
+  .success-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .success-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    animation: bounce 1s ease infinite;
+  }
+  
+  .success-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+  }
+  
+  .success-message {
+    font-size: 1.125rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+  
+  .success-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 20rem;
+  }
+  
+  @media (min-width: 640px) {
+    .success-buttons {
+        flex-direction: row;
+    }
+  }
+  
+  .restart-button,
+  .share-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+  
+  
+  .share-button {
+    background-color: #10b981;
+    color: white;
+  }
+  
+  .share-button:hover {
+    background-color: #059669;
+  }
+  
+  .button-icon {
+    font-size: 1.25rem;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }

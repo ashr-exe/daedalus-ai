@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+    <div class="content-wrapper">
+      <h1>Mock Cryptex</h1>
+      <div class="question-counter">Question <span id="current-question">1</span> of <span id="total-questions">3</span></div>
+      
+      <div class="question-box">
+        <div class="image-container">
+          <img id="question-image" alt="Quiz question" class="question-image">
+        </div>
+        <div class="input-group">
+          <input type="text" id="answer" placeholder="Your answer here..." autocomplete="off">
+          <button id="submit-btn">
+            <span class="button-text">Submit</span>
+            <span class="loader"></span>
+          </button>
+        </div>
+      </div>
 
+      <div id="feedback-container">
+        <div class="feedback-wrapper">
+          <p id="feedback"></p>
+          <div class="rating-container">
+            <div id="rating-slider"></div>
+            <div id="rating-value"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
