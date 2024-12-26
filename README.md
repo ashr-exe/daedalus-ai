@@ -1,119 +1,155 @@
 # **Daedalus-AI** 🧠🚀  
 
-Unleash the power of AI with **Daedalus-AI**, a futuristic, image-based quiz platform that blends advanced artificial intelligence, dynamic interactivity, and sleek design. Designed for innovators and learners, this app delivers engaging experiences powered by cutting-edge technologies.
+A modern image-based quiz platform powered by AI, combining SpaCy's semantic analysis and Groq's language models to provide intelligent answer evaluation. Experience an engaging quiz interface with real-time AI-powered feedback.
 
----
+## **✨ Key Features**  
+- **🤖 Dual AI Scoring System**: Combines SpaCy's semantic analysis with Groq's LLM capabilities
+- **📊 Real-Time Visual Feedback**: Dynamic rating sliders with color-coded feedback
+- **🎯 Interactive Quiz Interface**: Clean, responsive design with progress tracking
+- **🌐 Modern Web Stack**: Built with Node.js, Express, and vanilla JavaScript
+- **📱 Mobile-Friendly**: Responsive design that works on all devices
 
-## **🚨 Features at a Glance**  
-- **⚡ AI-Powered Scoring**: Leverages SpaCy and Llama APIs to rate user responses with precision.  
-- **🎯 Interactive Quizzes**: Dive into visually rich questions and unlock your knowledge.  
-- **📊 Real-Time Feedback**: Intuitive sliders and progress bars provide instant, actionable insights.  
-- **🌐 Cross-Platform Compatibility**: Enjoy the same high-tech experience on any device.  
-- **✨ Shareable Results**: Celebrate your success and challenge others to beat your score.
+## **🛠️ Technical Stack**
 
----
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **Backend**: Node.js, Express
+- **AI/ML**: 
+  - SpaCy (Python) for semantic similarity analysis
+  - Groq API with llama3-8b-8192 model for contextual understanding
+- **APIs**: REST endpoints for answer evaluation
 
-## **💻 Tech Stack**  
+## **⚡ Quick Start**
 
-| **Technology**   | **Role**                               |
-|-------------------|---------------------------------------|
-| **HTML/CSS**      | Elegant and responsive UI design      |
-| **JavaScript**    | Client-side interactivity and logic   |
-| **Node.js**       | Robust backend server and API routing |
-| **Python (SpaCy)**| Advanced answer evaluation           |
-| **Llama API**      | AI-assisted contextual scoring       |
+### Prerequisites
+- Node.js (v14 or higher)
+- Python (3.8 or higher)
+- SpaCy with English model
+- Groq API key
 
----
+### Installation
 
-## **🔧 How It Works**  
-1. **Image-Based Questions**:  
-   Each question is paired with a visually stimulating image to challenge the user's observational and knowledge skills.
-
-2. **AI Evaluation**:  
-   - **SpaCy**: Measures semantic similarity between the user's answer and the correct answer.  
-   - **Llama API**: Uses advanced contextual understanding using LLMs to provide a refined rating.  
-
-3. **Dynamic Feedback**:  
-   Ratings from both systems are combined, visualized, and displayed with an intuitive progress bar.
-
-4. **Quiz Progression**:  
-   Users proceed to the next question upon submitting correct answers or after retrying.
-
----
-
-## **🚀 Quick Start**  
-
-### 1. Clone the Repository:
+1. **Clone the repository**
 ```bash
 git clone https://github.com/yourusername/daedalus-ai.git
 cd daedalus-ai
 ```
 
-### 2. Install Dependencies:
-#### Backend:
+2. **Install Node.js dependencies**
 ```bash
 npm install
-pip install -r requirements.txt
-```
-#### Frontend:
-```bash
-npm run build
 ```
 
-### 3. Set Up Environment Variables:
-Create a `.env` file in the root directory with the following:
+3. **Install Python dependencies**
+```bash
+pip install spacy numpy
+python -m spacy download en_core_web_md
+```
+
+4. **Configure environment**
+Create a `.env` file in the root directory:
 ```env
 GROQ_API_KEY=your-groq-api-key
 PORT=3000
 ```
 
-### 4. Start the Application:
+5. **Add quiz images**
+Place your quiz images in the `public/images` directory:
+- q1.png
+- q2.png
+- q3.png
+
+6. **Start the server**
 ```bash
 npm start
 ```
 
-### 5. Access the App:
-Visit `http://localhost:3000` in your browser.
+7. **Access the application**
+Open `http://localhost:3000` in your browser
 
----
-
-## **📂 Project Structure**  
-
-```plaintext
+## **📁 Project Structure**
+```
 daedalus-ai/
-├── public/               # Static assets
-│   ├── index.html        # Main HTML file
-│   ├── styles.css        # CSS styles
-│   ├── script.js         # Frontend JavaScript
-│   ├── images/           # Images for the quiz
-│   │   ├── q1.png        # Question 1 image
-│   │   ├── q2.png        # Question 2 image
-│   │   └── q3.png        # Question 3 image
-├── server.js             # Node.js server for API and routing
-├── rate_answer.py        # Python-based AI scoring logic
-├── .gitignore            # Ignored files
-├── package.json          # Node.js dependencies
-├── requirements.txt      # Python dependencies
-└── README.md             # Project documentation
+├── public/
+│   ├── index.html      # Main HTML file
+│   ├── styles.css      # Styling
+│   ├── script.js       # Frontend logic
+│   └── images/         # Quiz images (add your own)
+├── server.js           # Express server & API endpoints
+├── rate_answer.py      # SpaCy answer evaluation
+├── .env               # Environment variables
+├── .gitignore         # Git ignore rules
+├── package.json       # Node.js dependencies
+└── README.md          # Documentation
 ```
 
+## **🔧 Configuration**
+
+### Environment Variables
+- `PORT`: Server port (default: 3000)
+- `GROQ_API_KEY`: Your Groq API key (required)
+
+### Quiz Questions
+Questions are configured in `public/script.js`. Each question requires:
+- Image path
+- Correct answer
+- Match answer (expanded version for AI evaluation)
+
+## **💡 How It Works**
+
+1. **Answer Submission**:
+   - User submits an answer
+   - Answer is evaluated by both SpaCy and Groq API
+
+2. **Dual AI Evaluation**:
+   - SpaCy: Measures semantic similarity
+   - Groq: Evaluates contextual understanding
+
+3. **Rating Visualization**:
+   - Individual ratings from both systems
+   - Combined rating with color-coded feedback
+   - Progress tracking across questions
+
+## **🌐 Browser Compatibility**
+- Chrome (v90+)
+- Firefox (v88+)
+- Safari (v14+)
+- Edge (v90+)
+
+## **⚠️ Troubleshooting**
+
+**SpaCy Model Error**
+```bash
+python -m spacy download en_core_web_md
+```
+
+**Groq API Issues**
+- Verify API key in `.env`
+- Check Groq service status
+- Ensure proper request format
+
+## **🤝 Contributing**
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## **📄 License**
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## **🙏 Acknowledgments**
+
+- SpaCy for their excellent NLP library
+- Groq for their powerful LLM API
+- The open-source community
+
 ---
 
-## **💡 Future Enhancements**  
-- 🌍 User signup/login and leaderboard.  
-- 🧩 User-customizable quizzes and question pools.  
-- 📈 AI-driven insights and analytics for quiz performance.  
-
----
-
-## **👨‍💻 Contributing**  
-We welcome contributions from developers worldwide! Feel free to fork this repository, create a feature branch, and submit a pull request.  
-
----
-
-## **📜 License**  
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Let me know if you want to include more interactive elements or sections, such as GIFs, screenshots, or API documentation!
+**Note**: This is a demonstration project. In a production environment, you would want to add:
+- User authentication
+- Rate limiting
+- Error logging
+- Testing suite
+- CI/CD pipeline
